@@ -1,6 +1,6 @@
 <template>
     <div class="home_body">
-        <van-search v-model="value" placeholder="请输入搜索关键词" />
+        <van-search  placeholder="请输入搜索关键词" to="/search"/>
         <banner></banner>
         
     <van-cell-group title="音乐品味">
@@ -19,15 +19,11 @@
         <van-cell-group title="推荐歌单">
 <!-- <van-skeleton title :row="3" />
     <van-skeleton title :row="3" /> -->
+
         <playlist></playlist>
         </van-cell-group>
 
-        <van-sticky :offset-bottom="50" position="bottom" >
-<div class="play">
-    <play/>
-</div>
 
-</van-sticky>
 
 
     </div>
@@ -40,7 +36,6 @@ import {reactive, onMounted } from 'vue';
 import banner from './banner.vue';
 import play from './play.vue'
 import playlist from './playlist.vue';
-const value=ref()
 
 
 
@@ -63,11 +58,5 @@ const badge_numbers = reactive({
     text-align: center;
     background-color: #39a9ed;
   }
-  .play{
-    width: 100%;
-    height: 50px;
-    
-    bottom: 5px;
-    background-color: #39a9ed;
-  }
+  
 </style>

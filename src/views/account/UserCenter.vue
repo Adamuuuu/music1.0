@@ -24,11 +24,11 @@
             </van-grid>
         </van-cell-group>
 
-        <van-cell-group title="基本资料">
+        <!-- <van-cell-group title="基本资料">
             <van-cell title="个人资料" is-link to="/uc/profile"></van-cell>
             <van-cell title="我的消息" is-link to="/uc/address"></van-cell>
             <van-cell title="设置" is-link to="/demo"></van-cell>
-        </van-cell-group>
+        </van-cell-group> -->
 
         <div class="my_music">
             <p>我的歌单</p>

@@ -1,9 +1,11 @@
 <template>
-  <!-- <div class="playinfo">
-<img src="songs.songs.al.picUrl" >
-<span></span>
 
-  </div> -->
+  <div class="play">
+  <div class="playinfo">
+<img :src="picUrl" >
+<p>{{ name }}--{{ songname }}</p>
+
+  </div>
   <div class="play-controller">
         <!-- 上一首 -->
         <iconPark :icon="GoStart" size="32" ></iconPark>
@@ -12,6 +14,7 @@
     <!-- 下一首 -->
         <iconPark :icon="GoEnd" size="32"></iconPark>
   </div>
+</div>
 </template>
 
 <script setup lang="ts">
@@ -20,9 +23,13 @@ import { GoEnd, GoStart, PauseOne, Play } from '@icon-park/vue-next';
 import { ref ,toRefs,onMounted} from 'vue';
 import {usePlayStore} from '@/store/play'
 import { useSongsinfoStore } from '@/store/songinfo';
+import { storeToRefs } from 'pinia';
 
 const {isPause,togglePlay}=toRefs( usePlayStore())
+const {picUrl,name,songname}=storeToRefs(usePlayStore())
+console.log(picUrl)
 // const {songs}=toRefs(usePlayStore())
+// const picUrl=toRefs( usePlayStore())
 
 // const {getSongsinfo}=usePlayStore()
 
@@ -36,8 +43,43 @@ const {isPause,togglePlay}=toRefs( usePlayStore())
 </script>
 
 <style scoped lang="less">
+.play{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+}
 .play-controller{
-  float: right;
-  margin-top: 10px;
+  // display: flex;
+  // align-items: center;
+  // align-content: center;
+  // justify-content: end;
+  
+  // max-width: 100px;
+  // min-width: 50px;
+  
+}
+.playinfo{
+  display: flex;
+align-items: center;
+justify-content: start;
+align-content: center;
+// margin-right: 20px;
+}
+.playinfo img{
+  width: 45px;
+  height: 45px;
+  display: flex;
+  
+margin-right: 20px;
+
+
+  border-radius:200px;
+}
+.playinfo p{
+  // float: left;
+  // line-height: 50px;
+  // text-align: center;
+  // margin-left: 10px;
 }
 </style>

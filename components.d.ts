@@ -11,6 +11,8 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     IconPark: typeof import('./src/components/common/iconPark.vue')['default']
+    Nav: typeof import('./src/components/common/nav.vue')['default']
+    Qrcode: typeof import('./src/components/common/qrcode.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Tabber: typeof import('./src/components/tabber/Tabber.vue')['default']
@@ -22,6 +24,7 @@ declare module '@vue/runtime-core' {
     VanGridItem: typeof import('vant/es')['GridItem']
     VanImage: typeof import('vant/es')['Image']
     VanList: typeof import('vant/es')['List']
+    VanNavBar: typeof import('vant/es')['NavBar']
     VanRow: typeof import('vant/es')['Row']
     VanSearch: typeof import('vant/es')['Search']
     VanSkeleton: typeof import('vant/es')['Skeleton']

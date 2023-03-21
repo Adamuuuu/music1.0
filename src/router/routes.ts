@@ -22,6 +22,16 @@ export const routes = [
                 component: () => import("_v/home/Home.vue")
             },
             {
+                path: "top",
+                name: "top",
+                component: () => import("_v/home/top/top.vue")
+            },
+            {
+                path: "playlist_songs",
+                name: "playlist_songs",
+                component: () => import("_v/playlist_songs/playlist_songs.vue")
+            },
+            {
                 path: "focus",
                 name: "focus",
                 meta: {
@@ -33,15 +43,15 @@ export const routes = [
             },
             {
                 
-                path: "search",
+                path: "playlistall",
                 
-                name: "search",
+                name: "playlistall",
                 meta: {
                    
                     ac: 0
                 },
                 
-                component: () => import("_v/search/Search.vue")
+                component: () => import("_v/playlistall/Playlistall.vue")
             },
             {
                 
@@ -65,11 +75,7 @@ export const routes = [
         name: "url404",
         component: () => import("_v/404.vue")
     },
-    {
-        path: "/top",
-        name: "top",
-        component: () => import("_v/home/top/top.vue")
-    },
+    
     {
         path: "/403",
         name: "url403",
@@ -79,4 +85,15 @@ export const routes = [
         path: "/:pathMath(.*)",
         redirect: '/404'
     },
+    {
+        path: "/search",
+        name: "search",
+        component: () => import("_v/search/search.vue")
+    },
+    {
+        path: "/login",
+        name: "login",
+        component: () => import("_v/login/Login.vue")
+    },
+    
 ]

@@ -6,6 +6,6 @@ import { ISongs } from '@/interface/songinfo';
 
 export async  function useSongsinfo(id:number)
 {
-        const songs=await http.get<{songs:ISongs[]}>('/song/detail',{id:id})
+        const songs=await http.get<{songs:ISongs[]}>('/song/detail',{ids:id})
         return songs;
 }

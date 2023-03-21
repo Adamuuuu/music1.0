@@ -9,10 +9,16 @@ export const usePlayStore=defineStore({
     state:()=>({
         audio:new Audio(),
         isPause:false,  //是否处于暂停的状态
-        
+        songs:<ISongs[]>{},
+        id:0,
+        picUrl:"0",
+        name:'歌手名',
+        songname:'歌曲名',
         return:{
-            songs:<ISongs[]>{},
-            picUrl:<string>{}
+            // songs:<ISongs[]>{},
+            picUrl:"",
+            name:"",
+            songname:''
         }
 
     }),
@@ -21,15 +27,22 @@ export const usePlayStore=defineStore({
         async play(id:number){
             console.log("play")
             const data=await useSongUrl(id)
+            const songs=await useSongsinfo(id)
             this.audio.src=data.url
-         
+            const picUrl=songs.songs[0].al.picUrl
+            const name=songs.songs[0].ar[0].name
+            const songname=songs.songs[0].name
+            // console.log(picUrl)
             this.audio.play()
             .then(()=>{
                 this.isPause=true
+                this.picUrl=picUrl
+                this.name=name
+                this.songname=songname
             })    
         },
-        // async getSongsinfo(id:number){
-        //     const songs=await useSongsinfo(id)
+        // async getSongsinfo(){
+        //     const songs=await useSongsinfo(this.id)
         //     const picUrl=songs.songs.al.picUrl
             
         // },

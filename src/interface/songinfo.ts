@@ -15,7 +15,7 @@ export interface Ar {
 
 export interface ISongs {
     name: string;  //歌曲名称
-    id: number;  //歌曲id
+    ids: number;  //歌曲id
     pst: number;
     t: number;
     ar: Ar[];  //歌手信息

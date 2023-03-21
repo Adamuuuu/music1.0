@@ -21,7 +21,6 @@ import { useBannerStore } from '@/store/banner';//状态管理
 import { storeToRefs } from 'pinia';//响应式特性
 import { onMounted ,ref} from 'vue';
 import { usePlayStore } from '@/store/play';
-import {useSongsinfoStore} from '@/store/songinfo'
 const {play}=usePlayStore()
 // const {getSongsinfo}=usePlayStore()
 const {banners}=storeToRefs(useBannerStore())

@@ -1,9 +1,9 @@
 <template>
     <van-grid :gutter="10" direction="horizontal">
-  <van-grid-item v-for="item ,index in playlists.result" :key="index"  >
+  <van-grid-item v-for="item ,index in playlists.result" :key="index"  to="playlist_songs" @click="getsongsid(item.id)">
     <div class="playlist">
       <img :src="item.picUrl" >
-  <p>{{ item.name }}</p>
+  <p>{{ item.id }}--{{ item.name }}</p>
     </div>
   
   </van-grid-item>
@@ -17,13 +17,19 @@
 import { usePlaylistStore } from '@/store/playlist';
 import { storeToRefs } from 'pinia';
 import { onMounted } from 'vue';
-
+import { usePlaylistInfoStore } from '@/store/playlistinfo';
 const {playlists}=storeToRefs(usePlaylistStore())
 const {getplaylists} =usePlaylistStore()
+
+const {getplaylistinfo} =usePlaylistInfoStore()
 
 onMounted (async()=>{
   await getplaylists()
 })
+
+function getsongsid(id:number){
+  getplaylistinfo(id)
+}
 
 
 
