@@ -20,8 +20,12 @@
          </van-cell>
         </van-list>
         
-            </div>  
-            
+            </div> 
+            <div class="play">
+
+                 <Play></Play>
+            </div> 
+           
         
         </div>
     </template>
@@ -32,6 +36,7 @@
         import { usePlayStore } from '@/store/play';
         import Nav  from "@/components/common/nav.vue"
         import { useSearchStore } from '@/store/search';
+        import Play from '@/views/home/play.vue'
         import searchSuggest from './searchsuggest.vue'
         import searchresult from './searchsuggest.vue'
 import router from '@/router';
@@ -103,5 +108,13 @@ async function search(keywords:string) {
             width: 100%;
             height: 40px;
         }
+        .play{
+    width: 100%;
+    height: 50px;  
+    bottom: 5px;
+    background-color: #39a9ed;
+    position: fixed;
+    bottom: 50px;
+  }
         </style>
 

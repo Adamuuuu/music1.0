@@ -10,11 +10,16 @@ export const usePlayStore = defineStore({
         audio: new Audio(),
         isPause: false,  //是否处于暂停的状态
         songs: <ISongs[]>{},
+        playlist:<ISongs[]>{},
         id: 0,
         picUrl: "0",
         name: '歌手名',
         songname: '歌曲名',
         songslist: [0],
+        
+        list:[""],
+        hh:-1,
+        tt:-1,
         return: {
             // songs:<ISongs[]>{},
             picUrl: "",
@@ -41,30 +46,34 @@ export const usePlayStore = defineStore({
                     this.picUrl = picUrl
                     this.name = name
                     this.songname = songname
+                    //播放列表设置
+                    //添加歌曲
+                    //删除歌曲
+                    //给歌曲去重
+                    //上一首歌曲下一首歌曲
+                    this.tt++
+                    console.log("播放成功")
+                    this.list[this.tt]=this.name
+                    // this.list[this.tt].songsname=songname
+                    console.log(this.tt)
                 })
         },
-        // async getSongsinfo(){
-        //     const songs=await useSongsinfo(this.id)
-        //     const picUrl=songs.songs.al.picUrl
-
-        // },
+       
         //判断歌曲目前是否暂停
         togglePlay() {
             this.isPause = !this.isPause
             if (this.isPause) {
                 this.audio.play()
+
             } else {
                 this.audio.pause()
             }
+            
 
         },
         addsongs() {
-            var i
-            for (i = 0; i < 10; i++) {
-                this.songslist.push(i)
-            }
-            console.log("添加成功")
-            return this.songslist
+            
+            
         }
 
     }

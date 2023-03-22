@@ -20,9 +20,10 @@
         <van-grid :gutter="10" direction="horizontal">
 
 
-          <van-cell v-for="item in addsongs">
+          <van-cell v-for="item , index in list" :key="index">
             <div>
               {{ item }}
+              
             </div>
           </van-cell>
 
@@ -39,14 +40,18 @@ import { ref, toRefs, onMounted } from 'vue';
 import { usePlayStore } from '@/store/play'
 import { useSongsinfoStore } from '@/store/songinfo';
 import { storeToRefs } from 'pinia';
+import { ISongs } from '@/interface/songinfo';
 
 const { isPause, togglePlay } = toRefs(usePlayStore())
-const { picUrl, name, songname } = storeToRefs(usePlayStore())
+const { picUrl, name, songname,list } = storeToRefs(usePlayStore())
+
 
 
 console.log(picUrl)
-let songslist = ref([0])
-var i = 0
+
+
+
+
 
 
 const showBottom = ref()
@@ -54,7 +59,7 @@ const showBottom = ref()
 
 function getmusiclist() {
   showBottom.value = true
-  addsongs
+  
 }
 // const {songs}=toRefs(usePlayStore())
 // const picUrl=toRefs( usePlayStore())
