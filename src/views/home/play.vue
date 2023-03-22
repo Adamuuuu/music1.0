@@ -1,33 +1,61 @@
 <template>
-
   <div class="play">
-  <div class="playinfo">
-<img :src="picUrl" >
-<p>{{ name }}--{{ songname }}</p>
+    <div class="playinfo">
+      <img :src="picUrl">
+      <p>{{ name }}--{{ songname }}</p>
 
+    </div>
+    <div class="play-controller">
+      <!-- 上一首 -->
+      <iconPark :icon="GoStart" size="32"></iconPark>
+      <!-- 播放 -->
+      <iconPark :icon="isPause ? PauseOne : Play" size="32" @click="togglePlay"></iconPark>
+      <!-- 下一首 -->
+      <iconPark :icon="GoEnd" size="32"></iconPark>
+
+
+      <iconPark :icon="MusicList" size="32" fill="#333" @click="getmusiclist"></iconPark>
+
+      <van-popup v-model:show="showBottom" position="bottom" :style="{ height: '30%' }">
+        <van-grid :gutter="10" direction="horizontal">
+
+
+          <van-cell v-for="item in addsongs">
+            <div>
+              {{ item }}
+            </div>
+          </van-cell>
+
+        </van-grid>
+      </van-popup>
+    </div>
   </div>
-  <div class="play-controller">
-        <!-- 上一首 -->
-        <iconPark :icon="GoStart" size="32" ></iconPark>
-    <!-- 播放 -->
-        <iconPark :icon="isPause?PauseOne:Play" size="32" @click="togglePlay"></iconPark>
-    <!-- 下一首 -->
-        <iconPark :icon="GoEnd" size="32"></iconPark>
-  </div>
-</div>
 </template>
 
 <script setup lang="ts">
 import iconPark from '@/components/common/iconPark.vue';
-import { GoEnd, GoStart, PauseOne, Play } from '@icon-park/vue-next';
-import { ref ,toRefs,onMounted} from 'vue';
-import {usePlayStore} from '@/store/play'
+import { GoEnd, GoStart, MusicList, PauseOne, Play } from '@icon-park/vue-next';
+import { ref, toRefs, onMounted } from 'vue';
+import { usePlayStore } from '@/store/play'
 import { useSongsinfoStore } from '@/store/songinfo';
 import { storeToRefs } from 'pinia';
 
-const {isPause,togglePlay}=toRefs( usePlayStore())
-const {picUrl,name,songname}=storeToRefs(usePlayStore())
+const { isPause, togglePlay } = toRefs(usePlayStore())
+const { picUrl, name, songname } = storeToRefs(usePlayStore())
+
+
 console.log(picUrl)
+let songslist = ref([0])
+var i = 0
+
+
+const showBottom = ref()
+
+
+function getmusiclist() {
+  showBottom.value = true
+  addsongs
+}
 // const {songs}=toRefs(usePlayStore())
 // const picUrl=toRefs( usePlayStore())
 
@@ -43,40 +71,44 @@ console.log(picUrl)
 </script>
 
 <style scoped lang="less">
-.play{
+.play {
   display: flex;
   align-items: center;
   justify-content: center;
   justify-content: space-between;
 }
-.play-controller{
+
+.play-controller {
   // display: flex;
   // align-items: center;
   // align-content: center;
   // justify-content: end;
-  
+
   // max-width: 100px;
   // min-width: 50px;
-  
+
 }
-.playinfo{
+
+.playinfo {
   display: flex;
-align-items: center;
-justify-content: start;
-align-content: center;
-// margin-right: 20px;
+  align-items: center;
+  justify-content: start;
+  align-content: center;
+  // margin-right: 20px;
 }
-.playinfo img{
+
+.playinfo img {
   width: 45px;
   height: 45px;
   display: flex;
-  
-margin-right: 20px;
+
+  margin-right: 20px;
 
 
-  border-radius:200px;
+  border-radius: 200px;
 }
-.playinfo p{
+
+.playinfo p {
   // float: left;
   // line-height: 50px;
   // text-align: center;
