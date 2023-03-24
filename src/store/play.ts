@@ -8,16 +8,17 @@ export const usePlayStore = defineStore({
     id: 'player',
     state: () => ({
         audio: new Audio(),
-        isPause: false,  //是否处于暂停的状态
+        isPause: false,  
+        //是否处于暂停的状态
         songs: <ISongs[]>{},
         playlist:<ISongs[]>{},
         id: 0,
         picUrl: "0",
         name: '歌手名',
         songname: '歌曲名',
-        songslist: [0],
-        
-        list:[""],
+        url:"",
+        list: [{player:"歌手名",songsname:"歌曲名",list_url:""}]||undefined,
+        e:[0],
         hh:-1,
         tt:-1,
         return: {
@@ -25,7 +26,6 @@ export const usePlayStore = defineStore({
             picUrl: "",
             name: "",
             // songslist: [0]
-
         }
 
     }),
@@ -33,31 +33,45 @@ export const usePlayStore = defineStore({
         //获得歌曲id并播放歌曲
         async play(id: number) {
             console.log("play")
+            // this.tt++
             const data = await useSongUrl(id)
             const songs = await useSongsinfo(id)
-            this.audio.src = data.url
+
+            
+            this.audio.src=data.url
             const picUrl = songs.songs[0].al.picUrl
             const name = songs.songs[0].ar[0].name
             const songname = songs.songs[0].name
-            // console.log(picUrl)
+            const dt=songs.songs[0].dt
+            const url=data.url
+            console.log("获取歌单详情成功")
+
+            
+            
+            
             this.audio.play()
-                .then(() => {
-                    this.isPause = true
-                    this.picUrl = picUrl
-                    this.name = name
-                    this.songname = songname
-                    //播放列表设置
-                    //添加歌曲
-                    //删除歌曲
-                    //给歌曲去重
-                    //上一首歌曲下一首歌曲
-                    this.tt++
-                    console.log("播放成功")
-                    this.list[this.tt]=this.name
-                    // this.list[this.tt].songsname=songname
-                    console.log(this.tt)
-                })
+                 .then(() => {
+                     this.isPause = true
+                     this.list.push({player:name,songsname:songname,list_url:data.url})
+                     
+                 })
+                
         },
+        playing(url:string)
+        {
+            this.audio.src=url
+            this.audio.play()
+            .then(()=>{
+                this.isPause = true
+                if(this.audio.ended)
+                {
+                   //歌曲播放完之后执行的函数 
+                }
+            })
+            
+        },
+        
+            
        
         //判断歌曲目前是否暂停
         togglePlay() {
@@ -70,11 +84,9 @@ export const usePlayStore = defineStore({
             }
             
 
-        },
-        addsongs() {
-            
-            
-        }
+         },
+       
 
-    }
-})
+}
+}
+)

@@ -3,6 +3,7 @@
 
     <van-sticky :offset-bottom="50" position="bottom" >
 <div class="play">
+    <!-- <List></List> -->
     <play/>
 </div>
 </van-sticky>
@@ -19,6 +20,7 @@
 
 import { ref } from 'vue'
 import play from '_v/home/play.vue'
+import List from '@/views/home/list.vue'
 const active = ref(0)
 
 </script>

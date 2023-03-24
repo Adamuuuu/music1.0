@@ -14,6 +14,7 @@
     "install": "^0.13.0",
     "path": "^0.12.7",
     "pinia": "^2.0.33",
+    "qrcode-generator": "^1.4.4",
     "qrcode.vue": "^3.3.4",
     "qrcodejs2": "^0.0.2",
     "vant": "^4.1.0",

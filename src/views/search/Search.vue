@@ -23,6 +23,7 @@
             </div> 
             <div class="play">
 
+                 <!-- <List></List> -->
                  <Play></Play>
             </div> 
            
@@ -114,7 +115,7 @@ async function search(keywords:string) {
     bottom: 5px;
     background-color: #39a9ed;
     position: fixed;
-    bottom: 50px;
+    bottom: 0px;
   }
         </style>
 
