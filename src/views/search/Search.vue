@@ -24,7 +24,11 @@
             <div class="play">
 
                  <!-- <List></List> -->
-                 <Play></Play>
+                 <keep-alive>
+
+             <Play></Play>
+                 </keep-alive>
+                
             </div> 
            
         

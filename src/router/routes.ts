@@ -2,7 +2,7 @@ export const routes = [
     {
         path: "/",
         name: "dashboard",
-        component: () => import("_c/tabber/Tabber.vue"),
+        component: () => import("@/components/tabber/Tabber.vue"),
         children: [
             //自动跳转的操作
             {
@@ -19,17 +19,17 @@ export const routes = [
                     ac: 0
                 },
                 
-                component: () => import("_v/home/Home.vue")
+                component: () => import("@/views/home/Home.vue")
             },
             {
                 path: "top",
                 name: "top",
-                component: () => import("_v/home/top/top.vue")
+                component: () => import("@/views/home/top/top.vue")
             },
             {
                 path: "playlist_songs",
                 name: "playlist_songs",
-                component: () => import("_v/playlist_songs/playlist_songs.vue")
+                component: () => import("@/views/playlist_songs/playlist_songs.vue")
             },
             {
                 path: "focus",
@@ -39,7 +39,7 @@ export const routes = [
                     ac: 0
                 },
                 
-                component: () => import("_v/focus/Focus.vue")
+                component: () => import("@/views/focus/Focus.vue")
             },
             {
                 
@@ -51,7 +51,7 @@ export const routes = [
                     ac: 0
                 },
                 
-                component: () => import("_v/playlistall/Playlistall.vue")
+                component: () => import("@/views/playlistall/Playlistall.vue")
             },
             {
                 
@@ -63,7 +63,7 @@ export const routes = [
                     ac: 3
                 },
                
-                component: () => import("_v/account/usercenter.vue")
+                component: () => import("@/views/account/usercenter.vue")
             },
         ]
 
@@ -73,13 +73,13 @@ export const routes = [
     {
         path: "/404",
         name: "url404",
-        component: () => import("_v/404.vue")
+        component: () => import("@/views/404.vue")
     },
     
     {
         path: "/403",
         name: "url403",
-        component: () => import("_v/403.vue")
+        component: () => import("@/views/403.vue")
     },
     {
         path: "/:pathMath(.*)",
@@ -88,12 +88,12 @@ export const routes = [
     {
         path: "/search",
         name: "search",
-        component: () => import("_v/search/search.vue")
+        component: () => import("@/views/search/search.vue")
     },
     {
         path: "/login",
         name: "login",
-        component: () => import("_v/login/Login.vue")
+        component: () => import("@/views/login/Login.vue")
     },
     
 ]

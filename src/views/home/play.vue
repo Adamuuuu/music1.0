@@ -90,7 +90,7 @@ const index = ref(0)
         index.value = 1
         
       }
-      playing(url)
+      playing(list.value[index.value].list_url)
       console.log(list.value[index.value],index.value)
 
     }
@@ -109,8 +109,10 @@ const index = ref(0)
     watch(list.value, () => {
       // index.value = 0
       console.log("监听执行了")
+      index.value++
+      console.log(list.value[index.value])
       console.log(index.value)
-        index.value++
+        
       
       
     })

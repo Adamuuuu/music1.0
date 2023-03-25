@@ -4,7 +4,8 @@
     <van-sticky :offset-bottom="50" position="bottom" >
 <div class="play">
     <!-- <List></List> -->
-    <play/>
+    <keep-alive><play/></keep-alive>
+    
 </div>
 </van-sticky>
     <van-tabbar v-model="active">
@@ -19,7 +20,7 @@
 <script setup lang="ts">
 
 import { ref } from 'vue'
-import play from '_v/home/play.vue'
+import play from '@/views/home/play.vue'
 import List from '@/views/home/list.vue'
 const active = ref(0)
 

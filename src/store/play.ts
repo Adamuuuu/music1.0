@@ -45,13 +45,14 @@ export const usePlayStore = defineStore({
             const dt=songs.songs[0].dt
             const url=data.url
             console.log("获取歌单详情成功")
-
+            // this.list.push({player:"",songsname:"",list_url:""})
             
             
             
             this.audio.play()
                  .then(() => {
                      this.isPause = true
+                     
                      this.list.push({player:name,songsname:songname,list_url:data.url})
                      
                  })
