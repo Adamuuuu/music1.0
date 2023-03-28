@@ -10,7 +10,6 @@ export const routes = [
                 redirect: '/home'
             },
             {
-             
                 path: "home",
                 
                 name: "home",

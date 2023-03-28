@@ -2,15 +2,30 @@ import { defineStore } from "pinia"
 import { ISongs } from "@/interface/songinfo"
 import { useSearch } from "@/api/search"
 //歌曲详情
-
+type Obj={
+    result:Result[]
+}
+type Result={
+    songs:result_songs[]
+}
+type result_songs={
+    id:number,
+    name:string,
+    artists:[{
+        id:number,
+        name:string,
+    }]
+}
 export const useSearchStore=defineStore('result',{
     state:()=>({
-        result:<ISongs[]>{},
-        songs:<ISongs[]>{},
+        obj:<Obj>{},
+        result:<Result>{},
+        res:<result_songs[]>{},
         isSearch:0,
         return:{
-            result:<ISongs[]>{},
-            songs:<ISongs[]>{},
+            result:<Result>{},
+            res:<result_songs[]>{},
+            songs:<Result>{},
             isSearch:true,
             
         }
@@ -26,8 +41,10 @@ export const useSearchStore=defineStore('result',{
             const result=await useSearch(keywords)
             console.log("获取搜索结果成功")
             this.isSearch=1
-            this.result=result
-            
+            this.result.songs=result.songs
+            this.res=this.result.songs
+            //此处需要自己写接口
+            console.log(this.result.songs)
         },
         
             

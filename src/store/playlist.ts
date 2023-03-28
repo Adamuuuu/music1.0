@@ -21,7 +21,7 @@ export const usePlaylistStore=defineStore('playlist',{
             // 发送请求接受接口的返回信息，将信息赋值给playlists:<Iplaylist[]>{}
             const playlists=await usePlaylist()
             console.log("获取成功")
-            this.playlists=playlists
+            this.playlists=playlists.result
             
         }
     }

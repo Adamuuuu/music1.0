@@ -5,7 +5,7 @@
    
    
         <div class="top">
-            <van-search v-model="value" placeholder="请输入搜索关键词" @search="search(value)" @change="onlyToSuggest"/>
+            <van-search v-model="value" placeholder="请输入搜索关键词" @search="search(value)" />
             <div class="top-top">
                 <p></p>
             </div> 
@@ -15,8 +15,8 @@
         <van-cell v-if="isSearch===0">
         </van-cell>
         <van-list v-else> 
-        <van-cell v-for="item,index in result.result.songs" :key="index" :title="item.name" @click="handle(item.id)"> 
-         {{ item.artists[0].name }} 
+        <van-cell v-for="item,index in res" :key="index" :title="item.name" @click="handle(item.id)"> 
+         {{ item.artists[0].name}} 
          </van-cell>
         </van-list>
         
@@ -45,7 +45,8 @@
         import searchSuggest from './searchsuggest.vue'
         import searchresult from './searchsuggest.vue'
 import router from '@/router';
-        const value=ref(router.currentRoute.value.query.searchkey)
+        const value=ref()
+        const {res}=storeToRefs(useSearchStore())
         const {getresult}=useSearchStore()
        
         onMounted(()=>{
@@ -57,10 +58,6 @@ import router from '@/router';
     })
     
  
-        
-
-       
-        
         
 async function search(keywords:string) {
     await getresult(keywords)

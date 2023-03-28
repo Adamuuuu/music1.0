@@ -1,6 +1,6 @@
 <template>
     <van-grid :gutter="10" direction="horizontal">
-  <van-grid-item v-for="item ,index in playlists.result" :key="index"  to="playlist_songs" @click="getsongsid(item.id)">
+  <van-grid-item v-for="item ,index in playlists" :key="index"  to="playlist_songs" @click="getsongsid(item.id)">
     <div class="playlist">
       <img :src="item.picUrl" >
   <p>{{ item.id }}--{{ item.name }}</p>

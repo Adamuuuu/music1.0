@@ -24,14 +24,15 @@ import {useBanner}  from '@/api/banner'
 export const useBannerStore=defineStore('banner',{
 
     
-    state:()=>{
-        return{
+    state:()=>({
+        banners:<IBanner[]>{},
+        return:{
             //返回轮播图接收的数据
          banners:<IBanner[]>{},
         //  getBanners:Promise<void>
         }
          
-    },
+    }),
     getters:{
     },
     actions:{
@@ -40,7 +41,8 @@ export const useBannerStore=defineStore('banner',{
             // 发送请求接受接口的返回信息，将信息赋值给banners:<IBanner[]>{}
             const banners=await useBanner()
             console.log("获取成功")
-            this.banners=banners
+            this.banners=banners.banners
+            // console.log(banners)
             
         }
     }

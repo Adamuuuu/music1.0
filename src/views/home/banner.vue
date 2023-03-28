@@ -2,15 +2,14 @@
 <template>
 <div class="Mine-categories-swipe">
 <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-    <van-swipe-item v-for="item ,index in banners.banners" :key="index" >
+    <van-swipe-item v-for="item ,index in banners" :key="index" >
       
     <img :src="item.pic" @click="handle(item.targetId)" >
     </van-swipe-item>
-  
   </van-swipe>
-<ul >
+<!-- <ul >
   <li v-for="item ,index in banners" :key="index">{{ item.pic }}</li>
-</ul>
+</ul> -->
 </div>
 </template>
 

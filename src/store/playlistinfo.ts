@@ -24,7 +24,7 @@ export const usePlaylistInfoStore=defineStore('playlistinfo',{
             // 发送请求接受接口的返回信息，将信息赋值给playlists:<Iplaylist[]>{}
             const playlistinfo=await usePlaylistInfo(id)
             console.log("获取歌单列表成功")
-            this.playlistinfo=playlistinfo
+            this.playlistinfo=playlistinfo.songs
             this.ar=playlistinfo.songs[0].ar
             
         }

@@ -21,7 +21,6 @@
 
 import { ref } from 'vue'
 import play from '@/views/home/play.vue'
-import List from '@/views/home/list.vue'
 const active = ref(0)
 
 </script>

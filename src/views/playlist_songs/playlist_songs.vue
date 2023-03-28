@@ -4,10 +4,11 @@
     <div class="top">
         <div class="top-top">
             <p>歌单详情</p>
+            <img src="@/assets/imges/logo3.png" >
         </div>
         <div class="top-bottom">
             <van-list>
-      <van-cell v-for="item,index in playlistinfo.songs" :key="index" :title="item.name" @click="handle(item.id)">
+      <van-cell v-for="item,index in playlistinfo" :key="index" :title="item.name" @click="handle(item.id)" >
     <!-- {{ item.name }} -->
     <!-- {{ item.dt }}-- -->
     {{ item.ar[0].name}}
@@ -37,7 +38,6 @@
 function handle(id:number){
     play(id)
 }
-
 
     // const list = ref([]);
     //     const loading = ref(false);
@@ -71,6 +71,10 @@ function handle(id:number){
         text-align: center;
         & h1{
             line-height: 200px;
+        }
+        & img{
+            width: 100%;
+            height: 225px;
         }
     }
     
