@@ -36,20 +36,20 @@
 1. 将本仓库克隆到本地环境中：
 
    ```
-   Copy Codegit clone https://github.com/Adamuuuu/music1.0.git
+   git clone https://github.com/Adamuuuu/music1.0.git
    ```
 
 2. 进入项目根目录并安装相关依赖：
 
    ```
-   Copy Codecd music1.0
+   cd music1.0
    npm install
    ```
 
 3. 启动开发服务器并运行项目：
 
    ```
-   Copy Codenpm run dev
+   npm run dev
    ```
 
 4. 在浏览器中打开`http://localhost:3000`，即可查看项目运行效果。
